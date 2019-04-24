@@ -11,7 +11,7 @@
 
 
 
-class Fruit
+class Item
   attr_reader :name, :color, :price
   attr_writer :price
 
@@ -26,20 +26,34 @@ class Fruit
   end
 end
 
-apple = Fruit.new(
+class Food < Item
+  attr_reader :shelf_life
+
+  def initialize(imput)
+    super
+    @shelf_life = imput[:shelf_life]
+  end
+end
+
+
+
+apple = Food.new(
                   name: "apple", 
                   color: "red", 
-                  price: 3
+                  price: 3,
+                  shelf_life: "5 days"
                   )
-orange = Fruit.new(
+orange = Food.new(
                   name: "orange", 
                   color: "orange", 
-                  price: 2
+                  price: 2,
+                  shelf_life: "5 days"
                   )
-cherries = Fruit.new(
+cherries = Food.new(
                   name: "cherries",
                   color: "red", 
-                  price: 3
+                  price: 3,
+                  shelf_life: "5 days"
                   )
 
 apple.print_info
@@ -49,5 +63,6 @@ puts apple.price
 puts apple.price
 apple.price = 2
 puts apple.price
+puts apple.shelf_life
 
 
