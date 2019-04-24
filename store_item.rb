@@ -12,37 +12,35 @@
 
 
 class Fruit
-  def initialize(imput_name, imput_color, imput_price)
-    @imput_name = imput_name
-    @imput_color = imput_color 
-    @imput_price = imput_price
-  end
+  attr_reader :name, :color, :price
+  attr_writer :price
 
-  def name
-    return @imput_name
-  end
-
-    def color
-    return @imput_color
-  end
-
-
-  def price
-    return @imput_price
-  end
-
-  def price=(new_price)
-    @imput_price = new_price 
+  def initialize(imput)
+    @name = imput[:name]
+    @color = imput[:color]
+    @price = imput[:price]
   end
 
   def print_info
-    puts "#{@imput_name}s are #{@imput_color} and is $#{@imput_price}."
+    puts "#{@name}s are #{@color} and is $#{@price}."
   end
 end
 
-apple = Fruit.new("apple", "red", 3)
-orange = Fruit.new("orange", "orange", 2)
-cherries = Fruit.new("cherries", "red", 3)
+apple = Fruit.new(
+                  name: "apple", 
+                  color: "red", 
+                  price: 3
+                  )
+orange = Fruit.new(
+                  name: "orange", 
+                  color: "orange", 
+                  price: 2
+                  )
+cherries = Fruit.new(
+                  name: "cherries",
+                  color: "red", 
+                  price: 3
+                  )
 
 apple.print_info
 puts apple.color
